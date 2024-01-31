@@ -1,0 +1,40 @@
+﻿<Window x:Class="practic_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:practic_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FF0083FF">
+        <Button x:Name="button" Content="Start Game" Margin="608,179,-107,182" RenderTransformOrigin="0.5,0.5" Click="Button_Click" Background="#FF5E17F1">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="89.951"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Margin="320,289,361,54" IsEnabled="False" x:Name="button2" Click="button8_Click" Background="#FF4A0FC5"/>
+        <Button Margin="10,172,671,171" IsEnabled="False" x:Name="button3" Click="button8_Click" Background="#FF4A0FC5"/>
+        <Button Margin="161,170,520,172" IsEnabled="False" x:Name="button4" Click="button8_Click" Background="#FF4A0FC5"/>
+        <Button Margin="161,289,520,54" IsEnabled="False" x:Name="button5" Click="button8_Click" Background="#FF4A0FC5"/>
+        <Button Margin="161,53,520,290" IsEnabled="False" x:Name="button6" Click="button8_Click" Background="#FF4A0FC5"/>
+        <Button Margin="10,289,671,54" IsEnabled="False" x:Name="button7" Click="button8_Click" Background="#FF4A0FC5"/>
+        <Button Margin="320,53,361,290" IsEnabled="False" x:Name="button8" Click="button8_Click"  Background="#FF4A0FC5" Foreground="Black"/>
+        <Button Margin="320,172,361,171" IsEnabled="False" x:Name="button9" Click="button8_Click" Background="#FF4A0FC5"/>
+        <Button Margin="10,53,671,290" IsEnabled="False" x:Name="button1" Click="button8_Click" Background="#FF4A0FC5"/>
+        <TextBlock x:Name="text" Text="Start ?" Margin="529,194,61,184" TextAlignment="Center" Background="#FF71D7F9" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="89.893"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+    </Grid>
+</Window>
