@@ -38,9 +38,7 @@ namespace practic_1
             proverka[5] = new Button[] { button6, button4, button5 };
             proverka[6] = new Button[] { button8, button9, button2 };
             proverka[7] = new Button[] { button8, button4, button7 };
-            text.Text = "Pleyer X";
         }
-
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -51,9 +49,9 @@ namespace practic_1
                     item.IsEnabled = true;
                 }
                 button.Content = "Game Stop/Over";
-                text.Text = "Pleyer X";
+                text.Text = "PleyerX";
             }
-            else
+            else if (button.Content.ToString() == "Game Stop/Over")
             {
                 foreach (var item in buttons)
                 {
@@ -65,29 +63,51 @@ namespace practic_1
                     foreach (var item in buttons)
                     {
                         item.Content = "";
-                        button.Content = "Start Game";
-                        text.Text = "Player ?";
+                        button.Content = "New Game";
                     }
+                }
+            }
+            else if(button.Content.ToString() == "New Game")
+            {
+                //string m = "PleyerO";
+                //MessageBox.Show(m);
+                //if (m == " You PleyerO")
+                //{
+                //    
+                //}
+                bool isFirstMovePlayerO = false;
+
+                if (!isFirstMovePlayerO)
+                {
+                    int randomIndex = random.Next(0, 9); 
+
+                    isFirstMovePlayerO = true;
+                }
+                text.Text = "PleyerO";
+                foreach (var item in buttons)
+                {
+                    item.Content = "";
+                    item.IsEnabled = true;
                 }
             }
         }
 
         private void button8_Click(object sender, RoutedEventArgs e)
         {
-            if (text.Text == "Pleyer X")
+            if (text.Text == "PleyerX")
             {
                 (sender as Button).Content = "X";
-                text.Text = "Pleyer O";
+                text.Text = "PleyerO";
             }
             else
             {
                 (sender as Button).Content = "O";
-                text.Text = "Pleyer X";
+                text.Text = "PleyerX";
             }
             (sender as Button).IsEnabled = false;
 
             int klic = random.Next(0, 9);
-            Thread.Sleep(500);
+
             if (buttons.All(x => x.IsEnabled == false))
             {
 
@@ -96,16 +116,16 @@ namespace practic_1
             {
                 while (buttons[klic].IsEnabled == false)
                     klic = random.Next(0, 9);
-                if (text.Text == "Pleyer X")
+                if (text.Text == "PleyerX")
                 {
                     buttons[klic].Content = "X";
                     buttons[klic].IsEnabled = false;
-                    text.Text = "Pleyer O";
+                    text.Text = "PleyerO";
                 }
                 else
                 {
                     buttons[klic].IsEnabled = false;
-                    text.Text = "Pleyer X";
+                    text.Text = "PleyerX";
                     buttons[klic].Content = "O";
                 }
             }
@@ -113,39 +133,70 @@ namespace practic_1
             if (proverka[0].All(x => x.Content == "X") || proverka[0].All(x => x.Content == "O"))
             {
                 MessageBox.Show($"Winner {proverka[0][0].Content}");
+                foreach (var item in buttons)
+                {
+                    item.IsEnabled = false;
+                }
             }
             else if (proverka[1].All(x => x.Content == "X") || proverka[1].All(x => x.Content == "O" ))
             {
                 MessageBox.Show($"Winner {proverka[1][0].Content}");
+                foreach (var item in buttons)
+                {
+                    item.IsEnabled = false;
+                }
             }
             else if (proverka[2].All(x => x.Content == "X") || proverka[2].All(x => x.Content == "O"))
             {
                 MessageBox.Show($"Winner {proverka[2][0].Content}");
+                foreach (var item in buttons)
+                {
+                    item.IsEnabled = false;
+                }
             }
             else if (proverka[3].All(x => x.Content == "X") || proverka[3].All(x => x.Content == "O"))
             {
-                MessageBox.Show($"Winner {proverka[3][0].Content}");
+                MessageBox.Show($"Winner {proverka[3][0].Content}"); foreach (var item in buttons)
+                {
+                    item.IsEnabled = false;
+                }
             }
             else if (proverka[4].All(x => x.Content == "X") || proverka[4].All(x => x.Content == "O"))
             {
                 MessageBox.Show($"Winner {proverka[4][0].Content}");
+                foreach (var item in buttons)
+                {
+                    item.IsEnabled = false;
+                }
             }
             else if (proverka[5].All(x => x.Content == "X") || proverka[5].All(x => x.Content == "O"))
             {
                 MessageBox.Show($"Winner {proverka[5][0].Content}");
+                foreach (var item in buttons)
+                {
+                    item.IsEnabled = false;
+                }
             }
             else if (proverka[6].All(x => x.Content == "X") || proverka[6].All(x => x.Content == "O"))
             {
                 MessageBox.Show($"Winner {proverka[6][0].Content}");
+                foreach (var item in buttons)
+                {
+                    item.IsEnabled = false;
+                }
             }
             else if (proverka[7].All(x => x.Content == "X") || proverka[7].All(x => x.Content == "O"))
             {
                 MessageBox.Show($"Winner {proverka[7][0].Content}");
+                foreach (var item in buttons)
+                {
+                    item.IsEnabled = false;
+                }
             }
-            if (buttons.All(x => !x.IsEnabled))
+            else if (!buttons.Any(x => x.IsEnabled))
             {
-                MessageBox.Show("Мича!");
+                MessageBox.Show("Ничья! Нет победителя.");
             }
         }
     }
-}
+} 
